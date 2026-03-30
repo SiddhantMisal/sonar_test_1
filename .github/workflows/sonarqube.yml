@@ -1,0 +1,27 @@
+name: SonarQube Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonar-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install SonarScanner
+        run: |
+          sudo apt-get update
+          sudo apt-get install sonar-scanner -y
+
+      - name: Run SonarQube Scan
+        run: |
+          sonar-scanner \
+          -Dsonar.projectKey=github-sonar-demo \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=https://margareta-baccivorous-metonymically.ngrok-free.dev \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
