@@ -16,5 +16,5 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v2
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://margareta-baccivorous-metonymically.ngrok-free.dev \
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_TEST_1 }}
+          SONAR_HOST_URL: https://margareta-baccivorous-metonymically.ngrok-free.dev 
